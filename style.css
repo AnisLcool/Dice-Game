@@ -3,9 +3,14 @@ body{
     padding: 0;
     box-sizing: border-box;
     background-image: url("back.jpg");
-    background-size: cover;
+    background-repeat:no-repeat;
+    background-size:100% 100vh;
 }
 
 .container{
-    
+    width:800px;
+    height: 80vh;
+    background-color: white;
+    margin: auto;
+    margin-top: 5%;
 }
