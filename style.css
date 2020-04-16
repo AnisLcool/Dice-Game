@@ -10,7 +10,7 @@ body {
 .container {
     width: 70%;
     height: 80vh;
-    background-color: white;
+    /*background-color: white;*/
     margin: auto;
     margin-top: 5%;
     display: flex;
@@ -61,6 +61,7 @@ h1 {
     grid-row:4/5;
     font-family: lato;
     text-align: center;
+    border-radius: 50%;
 }
 
 .current > p + p {
@@ -68,12 +69,39 @@ h1 {
     color:white;
 }
 
-.ng{
+.btn-new, .btn-roll, .btn-hold{
     position: absolute;
-    top:5%;
+    
     left: 46%;
-    color:slategray;
-    background-color: red;
+    color:dimgray;
+    border:none;
+    background-color: transparent;
     font-size: 25px;
     font-family: lato;
+    cursor: pointer;
+    padding-left: 0;
+
+}
+
+
+.btn-new{top:5%;}
+.btn-roll{top:65%; left:45.5%;}
+.btn-hold{ top:75%;}
+
+button > i{
+    margin-right: 8px;
+    color: cornflowerblue;
+}
+
+
+.dice-img{
+    position: absolute;
+    left: 46%;
+    top: 35%;
+    box-shadow:15px 15px 70px 15px lightgray;  
+
+}
+.dice-img > img{
+    width: 100px;
+    height: 100px;
 }
