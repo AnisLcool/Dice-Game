@@ -24,7 +24,7 @@ body {
 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 60% 1fr ;
 }
 
 .player2 {
@@ -33,21 +33,23 @@ body {
     background-color: white;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 60% 1fr;
 
 }
 
 h1 {
     font-family: lato;
+    /*background-color: red;*/
     letter-spacing: 3px;
-    width: fit-content;
+    margin:auto;
+   /* line-height: auto;*/
     color:navy;
     grid-column: 2/3;
     grid-row:2/3;
 }
 
 .score{
-    /*padding-top: 0px;*/
+    
     
     grid-column: 2/3;
     grid-row:3/4;
@@ -62,6 +64,8 @@ h1 {
     font-family: lato;
     text-align: center;
     border-radius: 50%;
+    width: 50%;
+    margin:auto;
 }
 
 .current > p + p {
@@ -112,3 +116,22 @@ button:hover i { margin-right: 20px; }
     width: 100px;
     height: 100px;
 }
+
+.player1 > h1::after {
+    content: "\2022";
+    font-size: 47px;
+    color: dodgerblue;
+    /*position: absolute;
+    top: -7px;
+    right: 10px;*/
+}
+
+.player2 > h1::after {
+    /*content: "\2022";*/
+    font-size: 47px;
+    color: dodgerblue;
+    /*position: absolute;
+    top: -7px;
+    right: 10px;*/
+}
+
