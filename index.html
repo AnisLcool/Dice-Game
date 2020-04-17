@@ -1,57 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <link type="text/css" rel="stylesheet" href="style.css">
-        
-        <title>Pig Game</title>
-    </head>
 
-    <body>
-        <div class="container">
-            <div class="player1">
-                <h1>PLAYER 1</h1>
-                <div class="score">
-                    43            
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <title>Pig Game</title>
+</head>
 
-                </div>
-
-                <div class="current">
-                    <p>CURRENT</p>
-                        <p>11</p>
-                    
-                </div>
-
+<body>
+    <div class="container">
+        <div class="player1">
+            <h1>PLAYER 1</h1>
+            <div class="score">
+                0
             </div>
-            
-            <div class="player2">
-                 <h1>PLAYER 2</h1>
-                 <div class="score">
-                    72
-                    
-                </div>
-
-                <div class="current">
-                        <p>CURRENT</p>
-                        <p>11</p>
-
-                </div>
-
+            <div class="current">
+                <p>CURRENT</p>
+                <p id="current1">0</p>
             </div>
-
-            <button class="btn-new"><i class="ion-ios-plus-outline"></i>NEW GAME</button>
-            <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
-            <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
-
-            <div class="dice-img">
-                <img src="dice-5.png" alt="dice">
-                
-            </div>
-
-
         </div>
-        <script src="app.js"></script>
-    </body>
+        <div class="player2">
+            <h1>PLAYER 2</h1>
+            <div class="score">
+                0
+            </div>
+            <div class="current">
+                <p>CURRENT</p>
+                <p id="current2">0</p>
+            </div>
+        </div>
+        <button class="btn-new"><i class="ion-ios-plus-outline"></i>NEW GAME</button>
+        <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
+        <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
+        <div class="dice-img">
+            <img src="dice-5.png" alt="dice">
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
 </html>

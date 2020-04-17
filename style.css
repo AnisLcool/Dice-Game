@@ -1,7 +1,12 @@
-body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+}
+
+body {
+
     background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100vh;
@@ -10,7 +15,6 @@ body {
 .container {
     width: 70%;
     height: 80vh;
-    /*background-color: white;*/
     margin: auto;
     margin-top: 5%;
     display: flex;
@@ -24,7 +28,7 @@ body {
 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 60% 1fr ;
+    grid-template-columns: 1fr 60% 1fr;
 }
 
 .player2 {
@@ -37,48 +41,51 @@ body {
 
 }
 
-h1 {
+.container > div > h1 {
     font-family: lato;
     /*background-color: red;*/
     letter-spacing: 3px;
-    margin:auto;
-   /* line-height: auto;*/
-    color:navy;
+    margin: auto;
+    /* line-height: auto;*/
+    color: navy;
     grid-column: 2/3;
-    grid-row:2/3;
+    grid-row: 2/3;
 }
 
-.score{
-    
-    
+.score {
+
+
     grid-column: 2/3;
-    grid-row:3/4;
+    grid-row: 3/4;
     font-size: 75px;
     color: blue;
     text-align: center;
 }
-.current{
-    background-color: deepskyblue;
+
+.current {
+    background-color: lightskyblue;
     grid-column: 2/3;
-    grid-row:4/5;
+    grid-row: 4/5;
     font-family: lato;
     text-align: center;
     border-radius: 50%;
     width: 50%;
-    margin:auto;
+    margin: auto;
 }
 
-.current > p + p {
+.current>p+p {
     font-size: 30px;
-    color:white;
+    color: white;
 }
 
-.btn-new, .btn-roll, .btn-hold{
+.btn-new,
+.btn-roll,
+.btn-hold {
     position: absolute;
-    
+
     left: 46%;
-    color:dimgray;
-    border:none;
+    color: dimgray;
+    border: none;
     background-color: transparent;
     font-size: 25px;
     font-family: lato;
@@ -89,51 +96,53 @@ h1 {
 }
 
 
-.btn-new{top:5%;}
-.btn-roll{top:65%; left:45.5%;}
-.btn-hold{ top:75%;}
+.btn-new {
+    top: 5%;
+}
 
-button > i{
+.btn-roll {
+    top: 65%;
+    left: 45.5%;
+}
+
+.btn-hold {
+    top: 75%;
+}
+
+button>i {
     margin-right: 8px;
     color: cornflowerblue;
     transition: margin 0.3s;
 }
 
-button:hover { font-weight: 600; }
-button:hover i { margin-right: 15px; }
+button:hover {
+    font-weight: 600;
+}
+
+button:hover i {
+    margin-right: 15px;
+}
 
 button:focus {
     outline: none;
 }
 
 
-.dice-img{
+.dice-img {
     position: absolute;
     left: 46%;
     top: 35%;
-    box-shadow:15px 15px 70px 15px lightgray;  
+    box-shadow: 15px 15px 70px 15px lightgray;
 
 }
-.dice-img > img{
+
+.dice-img>img {
     width: 100px;
     height: 100px;
 }
 
-.player1 > h1::after {
+.player1>h1::after {
     content: "\2022";
     font-size: 47px;
     color: dodgerblue;
-    /*position: absolute;
-    top: -7px;
-    right: 10px;*/
 }
-
-.player2 > h1::after {
-    /*content: "\2022";*/
-    font-size: 47px;
-    color: dodgerblue;
-    /*position: absolute;
-    top: -7px;
-    right: 10px;*/
-}
-
