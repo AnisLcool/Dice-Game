@@ -35,6 +35,7 @@ let switchTurn = () => {
 let check_score= () => {
     if(score[active_player] >= 100){
         document.querySelector(`.player${active_player + 1} > h1`).textContent = `WINNER : ${score[active_player]}`
+        document.querySelector(`.player${active_player + 1} > h1`).classList.add("winner")
         roll_btn.setAttribute("disabled", "");
         hold_btn.setAttribute("disabled", "");
     }
@@ -101,6 +102,8 @@ let new_game = () => {
     switchTurn();
     document.querySelector(`.player1 > .score`).textContent = 0;
     document.querySelector(`.player2 > .score`).textContent = 0;
+    document.getElementById(`idp${active_player}`).classList.remove("winner");
+    
     document.getElementById("idp1").textContent = "PLAYER 1";
     document.getElementById("idp2").textContent = "PLAYER 2";
 }
