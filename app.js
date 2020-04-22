@@ -12,9 +12,15 @@ GAME RULES:
 // setting the variables 
 let scores, round_score, active_player, img_container, tagCurrentScore, roll_btn, dice_image;
 
-score = [0, 0];
-round_score = 0;
-active_player = 1; // player 0 will have the first turn
+let initialize_game = () => {
+    score = [0, 0];
+    round_score = 0;
+    document.querySelector(`.player1 > .score`).textContent = 0;
+    document.querySelector(`.player2 > .score`).textContent = 0;
+    
+}
+
+
 
 let hide_display_img = function(value) { img_container.style.display = value; };
 
@@ -42,11 +48,7 @@ let check_score = () => {
     }
 }
 
-img_container = document.querySelector(".dice-img");
 
-hide_display_img("none") // hide the dice
-
-dice_image = img_container.children[0]; // retrieving the img
 
 
 let roll_dice = (event) => {
@@ -90,12 +92,9 @@ let hold_score = (event) => {
 }
 
 let new_game = () => {
-    score = [0, 0];
-    round_score = 0;
-    // active_player = 3-active_player;
+    initialize_game();
     switchTurn();
-    document.querySelector(`.player1 > .score`).textContent = 0;
-    document.querySelector(`.player2 > .score`).textContent = 0;
+    
     document.getElementById(`idp${3-active_player}`).classList.remove("winner");
 
     document.getElementById("idp1").textContent = "PLAYER 1";
@@ -116,3 +115,13 @@ hold_btn.addEventListener("click", hold_score);
 
 new_btn = document.querySelector(".btn-new");
 new_btn.addEventListener("click", new_game);
+
+initialize_game();
+
+active_player = 1; // player 0 will have the first turn
+
+img_container = document.querySelector(".dice-img");
+
+hide_display_img("none") // hide the dice
+
+dice_image = img_container.children[0]; // retrieving the img
