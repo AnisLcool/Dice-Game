@@ -9,15 +9,19 @@ GAME RULES:
 
 */
 
+// this version of code uses the state variable.
+
 // setting the variables 
-let scores, round_score, active_player, img_container, tagCurrentScore, roll_btn, dice_image;
+let scores, round_score, active_player, img_container, tagCurrentScore, roll_btn, dice_image,
+play_the_game;
 
 let initialize_game = () => {
     score = [0, 0];
     round_score = 0;
+    play_the_game = true;
     document.querySelector(`.player1 > .score`).textContent = 0;
     document.querySelector(`.player2 > .score`).textContent = 0;
-    
+
 }
 
 
@@ -34,17 +38,14 @@ let switchTurn = () => {
     document.querySelector(`.player${active_player}`).classList.add("currentTurn")
 
     hide_display_img("none");
-    // enable button
-    roll_btn.removeAttribute("disabled");
-    hold_btn.removeAttribute("disabled");
+    play_the_game = true;
 }
 
 let check_score = () => {
     if (score[active_player - 1] >= 100) {
         document.querySelector(`.player${active_player} > h1`).textContent = `WINNER : ${score[active_player-1]}`
         document.querySelector(`.player${active_player} > h1`).classList.add("winner")
-        roll_btn.setAttribute("disabled", "");
-        hold_btn.setAttribute("disabled", "");
+        play_the_game = false;
     }
 }
 
@@ -52,49 +53,48 @@ let check_score = () => {
 
 
 let roll_dice = (event) => {
+    if (play_the_game) {
+        tagCurrentScore = document.querySelector(`#current${active_player}`);
 
-    tagCurrentScore = document.querySelector(`#current${active_player}`);
+        let dice_number = Math.floor(Math.random() * 6) + 1; // random number between 1 and 6 inclusively
 
-    let dice_number = Math.floor(Math.random() * 6) + 1; // random number between 1 and 6 inclusively
-
-    // setting the src attribute to retrieve the dice img that matches the dice number
-    dice_image.src = `dice-${dice_number}.png`;
-    hide_display_img("block") // displaying the img
+        // setting the src attribute to retrieve the dice img that matches the dice number
+        dice_image.src = `dice-${dice_number}.png`;
+        hide_display_img("block") // displaying the img
 
 
-    // setting the round score, if the dice number is 1 , reset the round score to 0
-    if (dice_number !== 1) {
-        round_score += dice_number; // adding the dice number to round score
-        tagCurrentScore.textContent = round_score;
-    } else {
-        // disable button
-        roll_btn.setAttribute("disabled", "");
-        hold_btn.setAttribute("disabled", "");
-        // pause the game for 2 seconds , give the turn to the other player
-        setTimeout(switchTurn, 2000);
+        // setting the round score, if the dice number is 1 , reset the round score to 0
+        if (dice_number !== 1) {
+            round_score += dice_number; // adding the dice number to round score
+            tagCurrentScore.textContent = round_score;
+        } else {
+            play_the_game = false;
+            // pause the game for 2 seconds , give the turn to the other player
+            setTimeout(switchTurn, 2000);
+        }
     }
-
 }
 
 
 
 let hold_score = (event) => {
-    score[active_player - 1] += round_score;
-    document.querySelector(`.player${active_player} > .score`).textContent = score[active_player - 1];
-    if (score[active_player - 1] >= 94) {
-        check_score();
-    } else {
-        switchTurn();
+    if (play_the_game) {
+        score[active_player - 1] += round_score;
+        document.querySelector(`.player${active_player} > .score`).textContent = score[active_player - 1];
+        if (score[active_player - 1] >= 94) {
+            check_score();
+        } else {
+            switchTurn();
+        }
+
     }
-
-
 
 }
 
 let new_game = () => {
     initialize_game();
     switchTurn();
-    
+
     document.getElementById(`idp${3-active_player}`).classList.remove("winner");
 
     document.getElementById("idp1").textContent = "PLAYER 1";
